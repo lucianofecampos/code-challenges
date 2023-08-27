@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class MergeSortedArray {
 
@@ -20,9 +21,24 @@ public class MergeSortedArray {
         System.out.println(Arrays.toString(nums1));
     }
 
+    public static void merge2(int[] nums1, int[] nums2) {
+        nums1 = IntStream
+                .concat(Arrays.stream(nums1)
+                                .filter(value -> value != 0),
+                        Arrays.stream(nums2))
+                .sorted()
+                .toArray();
+
+        System.out.println(Arrays.toString(nums1));
+    }
+
     public static void main(String[] args) {
         merge(new int[]{}, 0, new int[]{1}, 1);
         merge(new int[]{1}, 1, new int[]{}, 0);
         merge(new int[]{1,2,3,0,0,0}, 3, new int[]{2,5,6}, 3);
+
+        merge2(new int[]{}, new int[]{1});
+        merge2(new int[]{1}, new int[]{});
+        merge2(new int[]{1,2,3,0,0,0}, new int[]{2,5,6});
     }
 }
