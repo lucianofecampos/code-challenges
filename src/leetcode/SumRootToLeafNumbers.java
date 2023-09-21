@@ -38,9 +38,6 @@ public class SumRootToLeafNumbers {
         TreeNode left;
         TreeNode right;
 
-         private TreeNode() {
-        }
-
         TreeNode(int val) {
             this.val = val;
         }
