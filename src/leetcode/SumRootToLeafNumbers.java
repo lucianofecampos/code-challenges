@@ -38,7 +38,7 @@ public class SumRootToLeafNumbers {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {
+         private TreeNode() {
         }
 
         TreeNode(int val) {
